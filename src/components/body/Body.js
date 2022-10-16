@@ -3,17 +3,18 @@ import Menu from './Menu';
 import Home from './Home';
 import Contact from './Contact';
 import About from './About';
-import { Route, Routes, Redirect } from 'react-router-dom';
+import { Route, Routes, Redirect, Switch } from 'react-router-dom';
 
 const Body = () => {
     return (
         <div>
-            <Routes>
-            <Route path="/" exact element={<Home />} />
-            <Route path="/menu" exact element={<Menu />} />
-            <Route path="/contact" exact element={<Contact />} />
-            <Route path="/about" exact element={<About />} /> 
-            </Routes>
+            <Switch>
+                <Route path="/home" exact element={<Home />} />
+                <Route path="/menu" exact element={<Menu />} />
+                <Route path="/contact" exact element={<Contact />} />
+                <Route path="/about" exact element={<About />} />
+                <Redirect from="/" to="/home" /> 
+            </Switch>
         </div>
     );
 }
